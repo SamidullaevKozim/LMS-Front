@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const instance = axios.create({
-  baseURL: "https://lms-backend-coral-nine.vercel.app",
+  baseURL: "https://lms-backend-pi-seven.vercel.app",
   headers: { "Content-Type": "application/json" },
 });
 
