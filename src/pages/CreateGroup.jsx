@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import instance from "../utils/axios";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const CreateGroup = () => {
   const [teachers, setTeachers] = useState([]);
+  let nav = useNavigate()
 
   const {
     register,
@@ -14,7 +17,8 @@ const CreateGroup = () => {
   const onSubmit = async (data) => {
     try {
       await instance.post("/groups", data);
-      alert("group created");
+      toast.success("Group created");
+      nav("/")
     } catch (err) {
       alert(err?.response?.data?.message);
     }

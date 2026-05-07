@@ -203,33 +203,6 @@ const Sidebar = ({ decode }) => {
             </li>
             <li>
               <Link
-                to="/layout/studentReg"
-                className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-[15px] font-medium text-[#5C899D] hover:bg-[#5C899D]/10 transition-all"
-              >
-                <svg
-                  className="w-4 h-4 shrink-0"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <circle
-                    cx="8"
-                    cy="5"
-                    r="3"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                Create Student
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/layout/groupreg"
                 className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-[15px] font-medium text-[#5C899D] hover:bg-[#5C899D]/10 transition-all"
               >
@@ -266,6 +239,33 @@ const Sidebar = ({ decode }) => {
                   />
                 </svg>
                 Create Group
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/layout/studentReg"
+                className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-[15px] font-medium text-[#5C899D] hover:bg-[#5C899D]/10 transition-all"
+              >
+                <svg
+                  className="w-4 h-4 shrink-0"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <circle
+                    cx="8"
+                    cy="5"
+                    r="3"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                Create Student
               </Link>
             </li>
           </>
