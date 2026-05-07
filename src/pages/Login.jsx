@@ -1,8 +1,8 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import instance from "../utils/axios";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import React, { useState } from "react";
 
 const Login = ({ setToken, setDecode }) => {
   const {
@@ -11,22 +11,22 @@ const Login = ({ setToken, setDecode }) => {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
+    setIsLoading(true);
     try {
       let res = await instance.post("/login", data);
       const token = res.data.token;
-
       localStorage.setItem("token", token);
-
       setToken(token);
       setDecode(jwtDecode(token));
-
       alert("Log in successful");
-
       navigate("/layout");
     } catch (err) {
       alert(err?.response?.data?.message);
+    } finally {
+      setIsLoading(false); // re-enables button on error
     }
   };
 
@@ -124,13 +124,14 @@ const Login = ({ setToken, setDecode }) => {
 
           <button
             type="submit"
-            className="w-full py-3 text-[15px] font-medium bg-[#5C899D] text-[#FFFCEF] rounded-xl hover:bg-[#4a7285] active:scale-[0.98] transition-all"
+            disabled={isLoading}
+            className="w-full py-3 text-[15px] font-medium bg-[#5C899D] text-[#FFFCEF] rounded-xl hover:bg-[#4a7285] active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:active:scale-100"
           >
-            Submit
+            {isLoading ? "Logging in..." : "Submit"}
           </button>
         </form>
-        </div>
       </div>
+    </div>
   );
 };
 
